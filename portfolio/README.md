@@ -1,7 +1,7 @@
 # Natia Khitarishvili — portfolio (test version)
 
 Static homepage built from the Figma file **Natia port - NEW › Final draft** (1440 × 6299).
-Plain HTML + CSS, with no build step and no dependencies.
+Plain HTML, CSS and a small vanilla JS file, with no build step and no dependencies.
 
 ## View it
 
@@ -22,6 +22,7 @@ Any static host works. Upload or point it at this `portfolio/` folder:
 portfolio/
 ├── index.html          page markup
 ├── styles.css          all styles (desktop values = exact Figma measurements)
+├── main.js             animations and interactions
 └── assets/
     ├── images/         project screenshots + portrait (WebP, 2× display size)
     ├── logos/          company logos (SVG; pubGENIUS is PNG, as in Figma)
@@ -35,6 +36,17 @@ All assets were extracted from the Figma SVG export. Photos are cropped to their
 
 Figma only has a desktop frame. At 1440px the page matches Figma to within 1px.
 Below that it scales down: card headers stack under 1100px, and screenshots stack into one column under 760px.
+
+## Motion & interactions (`main.js`)
+
+- **Hero word** cycles through *obvious → effortless → intuitive → simple → human → natural*, letter by letter. Edit the list in the `data-words` attribute in `index.html`.
+- **Project cards** stack while scrolling: each card sticks near the top and the next one slides over it, while the one behind shrinks slightly and dims. Cards taller than the screen scroll fully into view first.
+- **Sparkles** float or twinkle, spin on hover, and burst into small stars on click or tap.
+- **Portrait** tilts slightly toward the mouse cursor, and its outline rotates on hover.
+- **Page load and scroll**: the hero fades in in sequence; section titles and blocks fade up as they enter the screen.
+- **Small hovers** on nav links (underline), screenshots (gentle zoom), and contact icons and arrows.
+
+All motion is turned off for visitors who have "reduce motion" enabled. Without JavaScript, the page shows the static design.
 
 ## Open items (copy/design kept exactly as in Figma until confirmed)
 

@@ -14,6 +14,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@300;400;500&family=Montserrat:wght@600&family=Poppins:ital,wght@1,500&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("js")</script>
+  <script src="main.js" defer></script>
 </head>
 <body>
   <header class="site-header container">
@@ -26,27 +28,27 @@
   <main>
     <!-- Hero -->
     <section class="hero container" aria-labelledby="hero-title">
-      <p class="hero__greeting">Hi, I'm Natia</p>
+      <p class="hero__greeting intro" style="--d:0">Hi, I'm Natia</p>
       <h1 class="hero__title" id="hero-title">
-        <span class="hero__line">I design products</span>
-        <span class="hero__line">that feel <em>obvious.</em></span>
+        <span class="hero__line intro" style="--d:1">I design products</span>
+        <span class="hero__line intro" style="--d:2">that feel <em><span class="sr-only">obvious</span><span class="rotator" aria-hidden="true" data-words="obvious,effortless,intuitive,simple,human,natural"><span class="rotator__word">obvious</span></span>.</em></span>
       </h1>
-      <p class="hero__pill">
+      <p class="hero__pill intro" style="--d:3">
         <span>Currently crafting experiences at</span>
         <img src="assets/logos/logo-theneo-pill.svg" width="102.788" height="18" alt="Theneo">
       </p>
 
-      <div class="portrait">
+      <div class="portrait intro" style="--d:4">
         <span class="portrait__outline" aria-hidden="true"></span>
         <img class="portrait__photo" src="assets/images/portrait.webp" width="807" height="902" alt="Portrait of Natia Khitarishvili">
-        <img class="portrait__sparkle" src="assets/decor/sparkle-hero.svg" width="67.47" height="67.506" alt="" aria-hidden="true">
+        <span class="sparkle portrait__sparkle" aria-hidden="true"><img src="assets/decor/sparkle-hero.svg" width="67.47" height="67.506" alt=""></span>
       </div>
     </section>
 
     <!-- Featured work -->
     <section class="work container" id="projects" aria-labelledby="work-title">
-      <h2 class="section-title section-title--center" id="work-title">Featured work</h2>
-      <p class="work__years">(2020 – 2026)</p>
+      <h2 class="section-title section-title--center reveal" id="work-title">Featured work</h2>
+      <p class="work__years reveal">(2020 – 2026)</p>
 
       <div class="cards">
         <!-- 01 Elva -->
@@ -136,8 +138,8 @@
 
     <!-- About me -->
     <section class="about container" id="about" aria-labelledby="about-title">
-      <h2 class="section-title" id="about-title">About me</h2>
-      <div class="experience">
+      <h2 class="section-title reveal" id="about-title">About me</h2>
+      <div class="experience reveal">
         <h3 class="experience__label">Experience</h3>
         <ol class="experience__list">
           <li class="job">
@@ -164,28 +166,28 @@
   <!-- Work together -->
   <footer class="together" aria-labelledby="together-title">
     <div class="together__stage">
-      <img class="together__sparkle together__sparkle--r" src="assets/decor/sparkle-footer-r.svg" width="49.36" height="49.35" alt="" aria-hidden="true">
-      <img class="together__sparkle together__sparkle--l" src="assets/decor/sparkle-footer-l.svg" width="46.927" height="46.78" alt="" aria-hidden="true">
-      <h2 class="section-title section-title--center" id="together-title">Let’s work together?</h2>
-      <p class="together__text">Feel free to write to me. Let’s solve real problems through simple and aesthetic <br class="br-desktop">user interfaces</p>
+      <span class="sparkle together__sparkle together__sparkle--r" aria-hidden="true"><img src="assets/decor/sparkle-footer-r.svg" width="49.36" height="49.35" alt=""></span>
+      <span class="sparkle together__sparkle together__sparkle--l" aria-hidden="true"><img src="assets/decor/sparkle-footer-l.svg" width="46.927" height="46.78" alt=""></span>
+      <h2 class="section-title section-title--center reveal" id="together-title">Let’s work together?</h2>
+      <p class="together__text reveal">Feel free to write to me. Let’s solve real problems through simple and aesthetic <br class="br-desktop">user interfaces</p>
 
-      <ul class="contacts">
+      <ul class="contacts reveal">
         <li class="contact">
-          <img src="assets/icons/icon-mail.svg" width="58" height="58" alt="">
+          <img class="contact__icon" src="assets/icons/icon-mail.svg" width="58" height="58" alt="">
           <div class="contact__text">
             <span class="contact__label">Mail</span>
             <a class="contact__link" href="mailto:nattia.khitarishvili@gmail.com">nattia.khitarishvili@gmail.com</a>
           </div>
         </li>
         <li class="contact">
-          <img src="assets/icons/icon-instagram.svg" width="58" height="58" alt="">
+          <img class="contact__icon" src="assets/icons/icon-instagram.svg" width="58" height="58" alt="">
           <div class="contact__text">
             <span class="contact__label">Instagram</span>
             <a class="contact__link" href="https://www.facebook.com/nattia.khitarishvili" target="_blank" rel="noopener">@Natia Khitarishvili <span class="contact__arrow">↗</span></a>
           </div>
         </li>
         <li class="contact">
-          <img src="assets/icons/icon-linkedin.svg" width="58" height="58" alt="">
+          <img class="contact__icon" src="assets/icons/icon-linkedin.svg" width="58" height="58" alt="">
           <div class="contact__text">
             <span class="contact__label">LinkedIn</span>
             <a class="contact__link" href="https://www.linkedin.com/in/natiakhitarishvili/" target="_blank" rel="noopener">@Natia Khitarishvili <span class="contact__arrow">↗</span></a>
