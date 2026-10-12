@@ -189,9 +189,7 @@ a { color: inherit; }
 .card--tall-bottom { padding-bottom: 31px; }
 
 .card__head {
-  display: grid;
-  grid-template-columns: 1fr 636px;
-  height: 88px;                      /* divider sits 112px below card top */
+  padding-bottom: 28px;
   border-bottom: 1px solid var(--w-12);
 }
 .card__brand { display: flex; flex-direction: column; align-items: flex-start; }
@@ -204,13 +202,15 @@ a { color: inherit; }
 .card__logo { margin-top: 8px; }
 .card__logo--loose { margin-top: 12px; }
 .card__desc {
-  align-self: start;
-  font-size: 13px;
-  line-height: 32px;
-  color: var(--w-84);
+  max-width: 880px;
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, .6);
+  text-wrap: pretty;
 }
-
-.card__media { margin-top: 20px; }
+.card__desc strong { font-weight: 500; color: var(--w-100); }
+.card__media { margin-top: 28px; }
 
 /* screenshot frame */
 .shot { overflow: hidden; border-radius: 12px; }
@@ -426,12 +426,7 @@ a { color: inherit; }
 }
 
 @media (max-width: 1100px) {
-  .card__head {
-    grid-template-columns: 1fr;
-    row-gap: 16px;
-    height: auto;
-    padding-bottom: 20px;
-  }
+  .card__head { padding-bottom: 24px; }
   .experience { grid-template-columns: 1fr; row-gap: 16px; }
   .story { grid-template-columns: minmax(0, 320px) minmax(0, 1fr); column-gap: 48px; }
   .story__text p { font-size: 18px; line-height: 34px; margin-top: 28px; }
@@ -449,7 +444,8 @@ a { color: inherit; }
 
   .card { padding: 19px 15px 15px; border-radius: 20px; }
   .card--tall-bottom { padding-bottom: 15px; }
-  .card__desc { font-size: 14px; line-height: 24px; }
+  .card__desc { font-size: 16px; }
+  .card__media { margin-top: 20px; }
 
   .media-elva, .media-theneo { display: flex; flex-direction: column; gap: 12px; aspect-ratio: auto; }
   .media-col { gap: 12px; }
