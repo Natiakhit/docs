@@ -59,7 +59,6 @@ All motion is turned off for visitors who have "reduce motion" enabled. Without 
 
 ## Open items
 
-- The "Instagram" link points to a Facebook URL.
 - SF Pro Display (contact row) can't be served as a web font. It is used where the system provides it (Apple devices); Inter is used everywhere else.
 - The Feedc screenshot is 1.4× resolution, so it may look slightly soft on retina screens. A larger export would fix this.
 - The pubGENIUS logo is a small PNG; an SVG would be sharper.
