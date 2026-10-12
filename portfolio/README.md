@@ -48,9 +48,8 @@ Below that it scales down: card headers stack under 1100px, and screenshots stac
 
 All motion is turned off for visitors who have "reduce motion" enabled. Without JavaScript, the page shows the static design.
 
-## Open items (copy/design kept exactly as in Figma until confirmed)
+## Open items
 
-- Card 01 (Elva) uses the same description as card 02 (Theneo).
 - The "Instagram" link points to a Facebook URL.
 - SF Pro Display (contact row) can't be served as a web font. It is used where the system provides it (Apple devices); Inter is used everywhere else.
 - The Feedc screenshot is 1.4× resolution, so it may look slightly soft on retina screens. A larger export would fix this.
