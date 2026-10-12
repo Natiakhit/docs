@@ -49,6 +49,7 @@ Below that it scales down: card headers stack under 1100px, and screenshots stac
   - *Theneo review*: a cursor tours the changes and clicks "Submit review", and Sarah Chen's status flips to approved.
 
   Each one is an HTML layer on a design-size canvas over the screenshot (`.stage` in `index.html`), scaled to fit by `main.js`, so it stays sharp and aligned at every width.
+- **Polaroid** (About me): the childhood photo sits in a tilted polaroid with tape, a handwritten caption and a sparkle sticker. It "develops" from washed-out to full colour when it scrolls into view, and straightens and lifts on hover.
 - **Sparkles** float or twinkle, spin on hover, and burst into small stars on click or tap.
 - **Portrait** tilts slightly toward the mouse cursor, and its outline rotates on hover.
 - **Page load and scroll**: the hero fades in in sequence; section titles and blocks fade up as they enter the screen.
@@ -62,3 +63,4 @@ All motion is turned off for visitors who have "reduce motion" enabled. Without 
 - SF Pro Display (contact row) can't be served as a web font. It is used where the system provides it (Apple devices); Inter is used everywhere else.
 - The Feedc screenshot is 1.4× resolution, so it may look slightly soft on retina screens. A larger export would fix this.
 - The pubGENIUS logo is a small PNG; an SVG would be sharper.
+- The childhood photo (`assets/images/natia-childhood.webp`) was taken from a screenshot and upscaled. Replace it with the original export (same filename, about 800px wide or more) for a sharp image.

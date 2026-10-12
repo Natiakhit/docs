@@ -351,8 +351,25 @@
     stages.forEach(stage => io.observe(stage));
   }
 
+  /* ---------- Polaroid develops when it scrolls into view ---------- */
+  function initPolaroid() {
+    const polaroid = document.querySelector('.polaroid');
+    if (!polaroid) return;
+    if (reduceMotion.matches || !('IntersectionObserver' in window)) {
+      polaroid.classList.add('is-developed');
+      return;
+    }
+    const io = new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) return;
+      setTimeout(() => polaroid.classList.add('is-developed'), 350);
+      io.disconnect();
+    }, { threshold: 0.3 });
+    io.observe(polaroid);
+  }
+
   initRotator();
   initStages();
+  initPolaroid();
   initReveals();
   initStack();
   initSparkles();

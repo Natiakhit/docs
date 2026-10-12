@@ -289,9 +289,80 @@ a { color: inherit; }
 .job__role img { flex: none; }
 .job__logo--nudge { margin-top: 2px; }
 
+/* ---------- About: story ---------- */
+.story {
+  display: grid;
+  grid-template-columns: 403px minmax(0, 700px);
+  column-gap: 78px;
+  align-items: start;
+  margin-top: clamp(96px, 12.64vw, 182px);
+}
+.story__title {
+  font-weight: 400;
+  font-size: clamp(28px, 2.5vw, 36px);
+  line-height: 1.222;
+  text-wrap: balance;
+}
+.story__text p {
+  margin-top: 40px;
+  font-size: 20px;
+  line-height: 40px;
+  color: var(--w-80);
+}
+.story__title + p { margin-top: 29px; }
+
+/* polaroid */
+.polaroid {
+  --spark: #ff9fda;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 14px 14px 0;
+  border-radius: 3px;
+  background: #f3efe6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .35), 0 22px 48px rgba(0, 0, 0, .5);
+  transform: rotate(-3deg);
+  transition: transform .7s var(--ease-spring), box-shadow .7s var(--ease-out);
+}
+.polaroid__photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 526 / 698;
+  object-fit: cover;
+  transition: filter 2.8s cubic-bezier(.2, .6, .3, 1);
+}
+.js .polaroid:not(.is-developed) .polaroid__photo { filter: brightness(1.55) contrast(.5) saturate(0) blur(1.5px); }
+.polaroid__caption {
+  padding: 16px 0 22px;
+  text-align: center;
+  font: 500 27px/1 Caveat, "Bradley Hand", cursive;
+  color: #3b352e;
+  transform: rotate(-1.5deg);
+}
+.polaroid__tape {
+  position: absolute; z-index: 2; top: -17px; left: 50%;
+  width: 124px; height: 36px; margin-left: -62px;
+  background: rgba(236, 226, 196, .62);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .18);
+  transform: rotate(4deg);
+  clip-path: polygon(0 0, 100% 0, 97% 18%, 100% 36%, 97% 54%, 100% 72%, 97% 88%, 100% 100%, 0 100%, 3% 84%, 0 66%, 3% 48%, 0 30%, 3% 14%);
+}
+.polaroid__sticker {
+  position: absolute; z-index: 2; right: -24px; bottom: 50px;
+  width: 66px;
+  transform: rotate(14deg);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .45));
+}
+@media (hover: hover) {
+  .polaroid:hover {
+    transform: rotate(0deg) translateY(-6px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .35), 0 32px 64px rgba(0, 0, 0, .6);
+  }
+}
+
 /* ---------- Let's work together ---------- */
 .together {
-  margin-top: clamp(80px, 9.028vw, 130px);
+  margin-top: clamp(72px, 6.667vw, 96px);
   background: var(--c-surface);
 }
 .together__stage {
@@ -362,6 +433,9 @@ a { color: inherit; }
     padding-bottom: 20px;
   }
   .experience { grid-template-columns: 1fr; row-gap: 16px; }
+  .story { grid-template-columns: minmax(0, 320px) minmax(0, 1fr); column-gap: 48px; }
+  .story__text p { font-size: 18px; line-height: 34px; margin-top: 28px; }
+  .story__title + p { margin-top: 20px; }
   .contacts { flex-wrap: wrap; justify-content: center; gap: 32px 56px; }
   .together__sparkle--r { top: 72px; }
   .together__sparkle--l { top: 96px; left: 8%; }
@@ -385,6 +459,11 @@ a { color: inherit; }
   .shot img { height: auto; }
 
   .job__role { font-size: 18px; }
+  .story { grid-template-columns: 1fr; row-gap: 56px; }
+  .polaroid { width: min(300px, 82%); margin-inline: auto; }
+  .polaroid__caption { font-size: 23px; }
+  .polaroid__sticker { width: 52px; right: -18px; }
+  .story__text p { font-size: 17px; line-height: 30px; }
 
   .together__text { font-size: 17px; line-height: 28px; }
   .together__sparkle--r { width: 32px; top: 52px; left: auto; right: 8%; }
@@ -725,5 +804,7 @@ a { color: inherit; }
   .sparkle img, .contact__icon, .contact__arrow, .shot img, .portrait__outline { transition: none; }
   .js .cards.is-stacking .card { position: relative; top: auto; transform: none; }
   .js .cards.is-stacking .card::after { content: none; }
+  .js .polaroid:not(.is-developed) .polaroid__photo { filter: none; }
+  .polaroid { transition: none; }
   .peer, .peer__caret, .term__live::before, .term__cursor, .ai__glow, .ai__caret { animation: none !important; }
 }
