@@ -39,7 +39,7 @@ Below that it scales down: card headers stack under 1100px, and screenshots stac
 
 ## Motion & interactions (`main.js`)
 
-- **Hero word** cycles through *obvious → effortless → intuitive → simple → human → natural*, letter by letter. Edit the list in the `data-words` attribute in `index.html`.
+- **Hero word** rolls vertically through *obvious → intuitive → natural → human → familiar*. The word sits in a fixed-width slot, so the rest of the sentence never moves. Edit the list in the `data-words` attribute in `index.html`, and keep new words about as wide as "obvious." so the line stays balanced.
 - **Project cards** stack while scrolling: each card sticks near the top and the next one slides over it, while the one behind shrinks slightly and dims. Cards taller than the screen scroll fully into view first.
 - **Sparkles** float or twinkle, spin on hover, and burst into small stars on click or tap.
 - **Portrait** tilts slightly toward the mouse cursor, and its outline rotates on hover.

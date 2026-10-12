@@ -9,49 +9,52 @@
   /* ---------- Rotating hero word ---------- */
   function initRotator() {
     const rotator = document.querySelector('.rotator');
-    if (!rotator) return;
+    if (!rotator || reduceMotion.matches) return;
     const words = rotator.dataset.words.split(',');
+    const first = rotator.querySelector('.rotator__word');
+    const els = [first, ...words.slice(1).map(word => {
+      const el = document.createElement('span');
+      el.className = 'rotator__word';
+      el.textContent = word;
+      rotator.append(el);
+      return el;
+    })];
     let index = 0;
-    let current = rotator.querySelector('.rotator__word');
 
-    const fill = (el, word) => {
-      el.textContent = '';
-      [...word].forEach((ch, i) => {
-        const span = document.createElement('span');
-        span.className = 'rotator__char';
-        span.style.setProperty('--i', i);
-        span.textContent = ch;
-        el.append(span);
-      });
+    // Fixed slot = widest word, so "that feel" never shifts.
+    const size = () => {
+      rotator.classList.remove('is-ready');
+      rotator.style.width = '';
+      const widest = Math.max(...els.map(el => {
+        el.style.cssText = 'position:absolute;display:inline-block';
+        const w = el.getBoundingClientRect().width;
+        el.style.cssText = '';
+        return w;
+      }));
+      rotator.style.width = `${Math.ceil(widest)}px`;
+      rotator.classList.add('is-ready');
     };
-    fill(current, words[0]);
 
     const next = () => {
-      if (document.hidden || reduceMotion.matches) return;
-      index = (index + 1) % words.length;
-      const from = rotator.getBoundingClientRect().width;
-
-      const incoming = document.createElement('span');
-      incoming.className = 'rotator__word rotator__word--in';
-      fill(incoming, words[index]);
-      current.className = 'rotator__word rotator__word--out';
-      rotator.append(incoming);
-
-      // animate the slot width so the centred line glides instead of jumping
-      const to = incoming.getBoundingClientRect().width;
-      rotator.style.width = `${from}px`;
-      void rotator.offsetWidth;
-      rotator.style.width = `${to}px`;
-
-      const outgoing = current;
-      current = incoming;
+      if (document.hidden) return;
+      const leaving = els[index];
+      index = (index + 1) % els.length;
+      const entering = els[index];
+      leaving.className = 'rotator__word is-leaving';
+      entering.className = 'rotator__word';          // parked below the line
+      void entering.offsetWidth;
+      entering.className = 'rotator__word is-entering is-current';
       setTimeout(() => {
-        outgoing.remove();
-        rotator.style.width = '';   // back to natural width so resizes stay correct
-      }, 700);
+        if (leaving !== els[index]) leaving.className = 'rotator__word';
+        entering.classList.remove('is-entering');
+      }, 800);
     };
 
-    document.fonts.ready.then(() => setTimeout(() => setInterval(next, 2600), 1200));
+    document.fonts.ready.then(() => {
+      size();
+      addEventListener('resize', size);
+      setTimeout(() => setInterval(next, 2800), 1400);
+    });
   }
 
   /* ---------- Scroll reveals ---------- */
