@@ -1,0 +1,386 @@
+/* ==========================================================================
+   Natia Khitarishvili — portfolio
+   Source of truth: Figma "Natia port - NEW" › Final draft (1440 × 6299).
+   Desktop values below are the exact Figma measurements; smaller screens
+   scale down from them.
+   ========================================================================== */
+
+:root {
+  /* colour */
+  --c-page: #000000;
+  --c-surface: #0e0e0e;          /* cards, "work together" band */
+  --c-pill: #121212;
+  --c-frame: #2c2c2c;            /* thin border around some screenshots */
+  --c-accent: #ff9fda;           /* "obvious." */
+  --c-contact-label: #f0f8fd;
+  --c-contact-link: #33c9f9;
+  --w-100: #ffffff;
+  --w-84: rgba(255, 255, 255, 0.84);
+  --w-80: rgba(255, 255, 255, 0.8);
+  --w-64: rgba(255, 255, 255, 0.64);
+  --w-54: rgba(255, 255, 255, 0.54);
+  --w-50: rgba(255, 255, 255, 0.5);
+  --w-32: rgba(255, 255, 255, 0.32);
+  --w-16: rgba(255, 255, 255, 0.16);
+  --w-12: rgba(255, 255, 255, 0.12);
+
+  /* type */
+  --f-manrope: "Manrope", system-ui, sans-serif;
+  --f-inter: "Inter", system-ui, sans-serif;
+  --f-poppins: "Poppins", system-ui, sans-serif;
+  --f-montserrat: "Montserrat", system-ui, sans-serif;
+  /* SF Pro can't be served as a web font (Apple licence): it is used where the
+     system provides it, Inter everywhere else. */
+  --f-sf: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
+
+  /* layout */
+  --container: 1216px;
+  --gutter: clamp(16px, 4vw, 112px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--c-page);
+  color: var(--w-100);
+  font-family: var(--f-manrope);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+p, h1, h2, h3, figure, ol, ul { margin: 0; padding: 0; }
+a { color: inherit; }
+
+:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 4px; border-radius: 4px; }
+
+.container {
+  width: min(var(--container), 100% - 2 * var(--gutter));
+  margin-inline: auto;
+}
+
+/* ---------- Nav ---------- */
+.site-header { padding-top: 24px; }
+.nav { display: flex; gap: 48px; }
+.nav a {
+  font-family: var(--f-montserrat);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  text-decoration: none;
+  transition: opacity .2s ease;
+}
+.nav a:hover { opacity: .64; }
+
+/* ---------- Hero ---------- */
+.hero { text-align: center; }
+
+.hero__greeting {
+  margin-top: clamp(64px, 8.056vw, 116px);
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 40px;
+  color: var(--w-80);
+}
+
+.hero__title {
+  font-weight: 500;
+  font-size: clamp(40px, 5.8333vw, 84px);
+  line-height: 1.1905;               /* 100px @ 84px */
+}
+.hero__line { display: block; }
+.hero__title em {
+  font-family: var(--f-poppins);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--c-accent);
+}
+
+.hero__pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 16px auto 0;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: var(--c-pill);
+  font-family: var(--f-inter);
+  font-size: 16px;
+  line-height: 28px;
+}
+.hero__pill img { flex: none; width: 102.788px; height: 18px; }
+
+/* Portrait: photo + rotated outline behind + sparkle on top */
+.portrait {
+  position: relative;
+  width: min(403.557px, 100% - 48px);
+  aspect-ratio: 403.557 / 450.891;
+  margin: clamp(64px, 7.03vw, 101.233px) auto 0;
+  left: 2.14px;                      /* photo sits 2px right of centre in Figma */
+}
+.portrait__photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+}
+.portrait__outline {
+  position: absolute;
+  left: 3.117%;
+  top: -3.1513%;
+  width: 97.608%;
+  height: 97.296%;
+  border: 1px solid var(--w-100);
+  border-radius: 24px;
+  transform-origin: 0 0;
+  transform: matrix(0.995653, 0.0931423, -0.0864839, 0.996253, 0, 0);   /* 5.34° */
+}
+.portrait__sparkle {
+  position: absolute;
+  z-index: 2;
+  left: 89.204%;
+  top: -5.744%;
+  width: 16.719%;
+  height: auto;
+}
+
+/* ---------- Section titles ---------- */
+.section-title {
+  font-weight: 500;
+  font-size: clamp(44px, 5.5556vw, 80px);
+  line-height: 1.175;                /* 94px @ 80px */
+}
+.section-title--center { text-align: center; }
+
+/* ---------- Featured work ---------- */
+.work { margin-top: clamp(72px, 8.116vw, 116.876px); scroll-margin-top: 24px; }
+
+.work__years {
+  text-align: center;
+  font-size: 24px;
+  line-height: 48px;
+  color: var(--w-50);
+}
+
+.cards { display: flex; flex-direction: column; gap: 32px; margin-top: 32px; }
+
+.card {
+  background: var(--c-surface);
+  border: 1px solid var(--w-12);
+  border-radius: 24px;
+  padding: 23px 39px;                /* + 1px border = 24 / 40 */
+}
+.card--tall-bottom { padding-bottom: 31px; }
+
+.card__head {
+  display: grid;
+  grid-template-columns: 1fr 636px;
+  height: 88px;                      /* divider sits 112px below card top */
+  border-bottom: 1px solid var(--w-12);
+}
+.card__brand { display: flex; flex-direction: column; align-items: flex-start; }
+.card__index {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 20px;
+  color: var(--w-32);
+}
+.card__logo { margin-top: 8px; }
+.card__logo--loose { margin-top: 12px; }
+.card__desc {
+  align-self: start;
+  font-size: 13px;
+  line-height: 32px;
+  color: var(--w-84);
+}
+
+.card__media { margin-top: 20px; }
+
+/* screenshot frame */
+.shot { overflow: hidden; border-radius: 12px; }
+.shot img { width: 100%; height: 100%; object-fit: cover; }
+.shot--top-round { border-radius: 12px 12px 0 0; }
+.shot--r6 { border-radius: 6px; }
+.shot--r16 { border-radius: 16px; }
+.shot--flat, .shot--square { border-radius: 0; }
+.shot--framed { border: 1px solid var(--c-frame); }
+
+.media-col { display: flex; flex-direction: column; min-height: 0; }
+.media-col > .shot { flex: var(--h) 1 0; min-height: 0; }
+
+/* 01 — 2 × 2 grid with unequal rows */
+.media-elva {
+  display: grid;
+  grid-template-columns: 606fr 514fr;
+  gap: 16px;
+  aspect-ratio: 1136 / 604;
+}
+.media-elva .media-col { gap: 12px; }
+
+/* 02 — three columns, the last one split */
+.media-theneo {
+  display: grid;
+  grid-template-columns: 473fr 21px 310fr 22px 310fr;
+  aspect-ratio: 1136 / 362;
+}
+.media-theneo__main { grid-column: 1; }
+.media-theneo__mid { grid-column: 3; }
+.media-theneo__side { grid-column: 5; gap: 10.21px; }
+
+/* 03 — two equal shots */
+.media-two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.media-two .shot { aspect-ratio: 548 / 388; }
+
+/* ---------- About me ---------- */
+.about { margin-top: clamp(72px, 7.222vw, 104px); scroll-margin-top: 24px; }
+
+.experience {
+  display: grid;
+  grid-template-columns: 256px 1fr;
+  margin-top: 40px;
+}
+.experience__label {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 40px;
+  color: var(--w-50);
+}
+.experience__list { list-style: none; padding-top: 8px; }
+
+.job + .job {
+  margin-top: 31px;
+  padding-top: 32px;
+  border-top: 1px solid var(--w-16);
+}
+.job__date {
+  font-family: var(--f-inter);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--w-54);
+}
+.job__role {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  column-gap: 16px;
+  row-gap: 8px;
+  margin-top: 8px;
+  font-family: var(--f-inter);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+}
+.job__role img { flex: none; }
+.job__logo--nudge { margin-top: 2px; }
+
+/* ---------- Let's work together ---------- */
+.together {
+  margin-top: clamp(80px, 9.028vw, 130px);
+  background: var(--c-surface);
+}
+.together__stage {
+  position: relative;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: clamp(80px, 8.889vw, 128px) var(--gutter) 64px;
+}
+
+.together__sparkle { position: absolute; height: auto; }
+.together__sparkle--r { left: 77.823%; top: 110.66px; width: 49.36px; }
+.together__sparkle--l { left: 19.013%; top: 204.66px; width: 46.927px; }
+
+.together__text {
+  max-width: 976px;
+  margin: 24px auto 0;
+  text-align: center;
+  font-size: 20px;
+  line-height: 36px;
+  color: var(--w-64);
+}
+
+.contacts {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin-top: clamp(72px, 8.889vw, 128px);
+  padding: 0 calc(190px - var(--gutter)) 0 calc(118px - var(--gutter));
+}
+.contact { display: flex; align-items: center; gap: 23px; }
+.contact > img { flex: none; width: 58px; height: 58px; }
+.contact__text {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--f-sf);
+  font-size: 21px;
+  line-height: 28px;
+  letter-spacing: 0.357px;
+  white-space: nowrap;
+}
+.contact__label { color: var(--c-contact-label); }
+.contact__link {
+  color: var(--c-contact-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity .2s ease;
+}
+.contact__link:hover { opacity: .72; }
+.contact__arrow { font-weight: 500; }
+
+/* ==========================================================================
+   Responsive — no tablet/mobile frames exist in Figma; these adapt the
+   desktop design without changing its look.
+   ========================================================================== */
+
+@media (max-width: 1360px) {
+  .contacts { padding-inline: 0; }
+}
+
+@media (max-width: 1100px) {
+  .card__head {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+    height: auto;
+    padding-bottom: 20px;
+  }
+  .experience { grid-template-columns: 1fr; row-gap: 16px; }
+  .contacts { flex-wrap: wrap; justify-content: center; gap: 32px 56px; }
+  .together__sparkle--r { top: 72px; }
+  .together__sparkle--l { top: 96px; left: 8%; }
+  .br-desktop { display: none; }
+}
+
+@media (max-width: 760px) {
+  .hero__greeting { font-size: 20px; line-height: 32px; }
+  .hero__pill { font-size: 14px; line-height: 24px; gap: 8px; padding: 6px 10px; }
+  .hero__pill img { width: 85.66px; height: 15px; }
+
+  .card { padding: 19px 15px 15px; border-radius: 20px; }
+  .card--tall-bottom { padding-bottom: 15px; }
+  .card__desc { font-size: 14px; line-height: 24px; }
+
+  .media-elva, .media-theneo { display: flex; flex-direction: column; gap: 12px; aspect-ratio: auto; }
+  .media-col { gap: 12px; }
+  .media-col > .shot { flex: none; }
+  .media-two { grid-template-columns: 1fr; gap: 12px; }
+  .media-two .shot { aspect-ratio: auto; }
+  .shot img { height: auto; }
+
+  .job__role { font-size: 18px; }
+
+  .together__text { font-size: 17px; line-height: 28px; }
+  .together__sparkle--r { width: 32px; top: 52px; left: auto; right: 8%; }
+  .together__sparkle--l { width: 30px; top: 150px; left: 5%; }
+  .contacts { flex-direction: column; align-items: flex-start; width: fit-content; margin-inline: auto; gap: 24px; }
+  .contact { gap: 16px; }
+  .contact > img { width: 48px; height: 48px; }
+  .contact__text { font-size: 17px; line-height: 24px; }
+}
