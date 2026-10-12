@@ -41,6 +41,14 @@ Below that it scales down: card headers stack under 1100px, and screenshots stac
 
 - **Hero word** rolls vertically through *obvious → intuitive → natural → human → familiar*. The word sits in a fixed-width slot, so the rest of the sentence never moves. Edit the list in the `data-words` attribute in `index.html`, and keep new words about as wide as "obvious." so the line stays balanced.
 - **Project cards** stack while scrolling: each card sticks near the top and the next one slides over it, while the one behind shrinks slightly and dims. Cards taller than the screen scroll fully into view first.
+- **Live product cards** replay real product moments on loop, and only while they're on screen:
+  - *Elva terminal*: types out an `npx elva sync` run, from scanning the repo to the MCP server going live.
+  - *Elva AI assistant*: types example prompts into "Ask AI to…", and the send button lights up.
+  - *Theneo editor*: Lana, Peter, Sarah, Carlos and Erik move around the doc as live cursors.
+  - *Theneo comments*: a cursor reacts (2 → 3), types "Great, thanks!" and posts it into the thread.
+  - *Theneo review*: a cursor tours the changes and clicks "Submit review", and Sarah Chen's status flips to approved.
+
+  Each one is an HTML layer on a design-size canvas over the screenshot (`.stage` in `index.html`), scaled to fit by `main.js`, so it stays sharp and aligned at every width.
 - **Sparkles** float or twinkle, spin on hover, and burst into small stars on click or tap.
 - **Portrait** tilts slightly toward the mouse cursor, and its outline rotates on hover.
 - **Page load and scroll**: the hero fades in in sequence; section titles and blocks fade up as they enter the screen.

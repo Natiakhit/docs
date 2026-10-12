@@ -177,7 +177,182 @@
     });
   }
 
+  /* ---------- Live product cards ----------
+     Each .stage holds a design-size canvas scaled to its slot. Scripted
+     scenes only advance while their card is on screen. */
+  const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+  function moveCursor(cursor, x, y, dur = 800) {
+    // (x, y) is where the pointer's tip should land
+    const size = cursor.querySelector('.ptr').getBoundingClientRect().width / (cursor.closest('.stage').style.getPropertyValue('--s') || 1);
+    cursor.style.setProperty('--dur', `${dur}ms`);
+    cursor.style.setProperty('--x', `${x - size * 0.17}px`);
+    cursor.style.setProperty('--y', `${y - size * 0.1}px`);
+  }
+  async function clickCursor(cursor) {
+    cursor.classList.add('is-click');
+    await sleep(140);
+    cursor.classList.remove('is-click');
+  }
+
+  const scenes = {
+    async terminal({ el, wait }) {
+      const lines = [...el.querySelectorAll('.tl')];
+      const typed = el.querySelector('.tl__typed');
+      typed.dataset.text ??= typed.textContent;
+      el.classList.remove('is-fading');
+      el.classList.add('is-playing');
+      lines.forEach(line => line.classList.remove('is-on', 'is-late'));
+      typed.textContent = '';
+      lines[0].classList.add('is-on');
+      await wait(600);
+      for (const ch of typed.dataset.text) {
+        typed.textContent += ch;
+        await wait(30 + Math.random() * 45);
+      }
+      for (const line of lines.slice(1)) {
+        await wait(+line.dataset.d || 300);
+        line.classList.add('is-on');
+        if (line.querySelector('.late')) {
+          await wait(320);
+          line.classList.add('is-late');
+        }
+      }
+      await wait(4500);
+      el.classList.add('is-fading');
+      await wait(450);
+    },
+
+    async 'ai-prompt'({ el, wait }) {
+      const out = el.querySelector('.ai__typed');
+      for (const prompt of el.dataset.prompts.split('|')) {
+        el.classList.add('is-empty');
+        el.classList.remove('has-text');
+        out.textContent = '';
+        await wait(1000);
+        el.classList.remove('is-empty');
+        el.classList.add('has-text');
+        for (const ch of prompt) {
+          out.textContent += ch;
+          await wait(40 + Math.random() * 50);
+        }
+        await wait(1800);
+        while (out.textContent) {
+          out.textContent = out.textContent.slice(0, -1);
+          await wait(14);
+        }
+      }
+    },
+
+    async review({ el, wait }) {
+      const cursor = el.querySelector('.cursor');
+      el.classList.add('is-live');
+      el.classList.remove('approved', 'btn-press', 'row-on');
+      moveCursor(cursor, 640, 150, 0);
+      await wait(700);
+      for (const [i, y] of [274, 336, 429].entries()) {
+        moveCursor(cursor, 290 + i * 40, y + 4, i ? 650 : 950);
+        await wait(i ? 650 : 950);
+        el.style.setProperty('--ry', `${y - 15}px`);
+        el.classList.add('row-on');
+        await wait(700);
+      }
+      el.classList.remove('row-on');
+      moveCursor(cursor, 866, 24, 1000);
+      await wait(1100);
+      await clickCursor(cursor);
+      el.classList.add('btn-press');
+      await wait(220);
+      el.classList.remove('btn-press');
+      await wait(380);
+      el.classList.add('approved');
+      await wait(2800);
+      moveCursor(cursor, 640, 150, 900);
+      await wait(500);
+      el.classList.remove('approved');
+      await wait(600);
+    },
+
+    async comments({ el, wait }) {
+      const cursor = el.querySelector('.cursor');
+      const count = el.querySelector('.cm__n');
+      const typed = el.querySelector('.cm__typed');
+      el.classList.remove('sent', 'reacted', 'is-typing');
+      count.textContent = '2';
+      typed.textContent = '';
+      await wait(900);
+      moveCursor(cursor, 205, 225, 950);              // to the reaction
+      await wait(1050);
+      await clickCursor(cursor);
+      count.textContent = '3';
+      el.classList.add('reacted');
+      await wait(320);
+      el.classList.remove('reacted');
+      await wait(650);
+      moveCursor(cursor, 440, 512, 900);              // into the reply box
+      await wait(1000);
+      await clickCursor(cursor);
+      el.classList.add('is-typing');
+      await wait(350);
+      for (const ch of 'Great, thanks!') {
+        typed.textContent += ch;
+        await wait(55 + Math.random() * 55);
+      }
+      await wait(600);
+      typed.textContent = '';
+      el.classList.remove('is-typing');
+      el.classList.add('sent');                       // reply joins the thread
+      moveCursor(cursor, 780, 330, 1100);
+      await wait(3200);
+      el.classList.remove('sent');
+      moveCursor(cursor, 562, 215, 900);
+      await wait(1000);
+    },
+  };
+
+  function runScene(el, scene) {
+    let visible = false;
+    let waiting = [];
+    const gate = () => (visible ? Promise.resolve() : new Promise(resolve => waiting.push(resolve)));
+    const wait = async ms => { await sleep(ms); await gate(); };
+    (async () => {
+      await gate();
+      for (;;) await scene({ el, wait });
+    })();
+    return {
+      pause() { visible = false; },
+      resume() { visible = true; waiting.splice(0).forEach(resolve => resolve()); },
+    };
+  }
+
+  function initStages() {
+    const stages = [...document.querySelectorAll('.stage')];
+    if (!stages.length) return;
+    const fit = stage => stage.style.setProperty('--s', (stage.clientWidth / +stage.dataset.w).toFixed(5));
+    stages.forEach(stage => {
+      const canvas = stage.querySelector('.stage__canvas');
+      canvas.style.setProperty('--w', stage.dataset.w);
+      canvas.style.setProperty('--h', stage.dataset.h);
+      fit(stage);
+      const el = stage.querySelector('[data-anim]');
+      const scene = el && scenes[el.dataset.anim];
+      if (scene && !reduceMotion.matches) stage._scene = runScene(el, scene);
+    });
+    if ('ResizeObserver' in window) {
+      const ro = new ResizeObserver(entries => entries.forEach(entry => fit(entry.target)));
+      stages.forEach(stage => ro.observe(stage));
+    }
+    const show = (stage, on) => {
+      stage.classList.toggle('is-visible', on);
+      if (stage._scene) on ? stage._scene.resume() : stage._scene.pause();
+    };
+    if (!('IntersectionObserver' in window)) { stages.forEach(stage => show(stage, true)); return; }
+    const io = new IntersectionObserver(entries => entries.forEach(e => show(e.target, e.isIntersecting)), { threshold: 0.2 });
+    stages.forEach(stage => io.observe(stage));
+  }
+
   initRotator();
+  initStages();
   initReveals();
   initStack();
   initSparkles();
