@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Natia Khitarishvili — Product Designer</title>
+  <meta name="description" content="I design products that feel obvious. Portfolio of Natia Khitarishvili, Senior Product Designer at Theneo.">
+  <meta property="og:title" content="Natia Khitarishvili — Product Designer">
+  <meta property="og:description" content="I design products that feel obvious.">
+  <meta property="og:image" content="assets/images/portrait.webp">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" type="image/svg+xml" href="assets/decor/sparkle-hero.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500&family=Montserrat:wght@600&family=Poppins:ital,wght@1,500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("js")</script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <header class="site-header container">
+    <nav class="nav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" aria-labelledby="hero-title">
+      <p class="hero__greeting intro" style="--d:0">Hi, I'm Natia</p>
+      <h1 class="hero__title" id="hero-title">
+        <span class="hero__line intro" style="--d:1">I design products</span>
+        <span class="hero__line intro" style="--d:2">that feel <em><span class="sr-only">obvious.</span><span class="rotator" aria-hidden="true" data-words="obvious.,intuitive.,natural.,human.,familiar."><span class="rotator__word is-current">obvious.</span></span></em></span>
+      </h1>
+      <p class="hero__pill intro" style="--d:3">
+        <span>Currently crafting experiences at</span>
+        <img src="assets/logos/logo-theneo-pill.svg" width="102.788" height="18" alt="Theneo">
+      </p>
+
+      <div class="portrait intro" style="--d:4">
+        <span class="portrait__outline" aria-hidden="true"></span>
+        <img class="portrait__photo" src="assets/images/portrait.webp" width="807" height="902" alt="Portrait of Natia Khitarishvili">
+        <span class="sparkle portrait__sparkle" aria-hidden="true"><img src="assets/decor/sparkle-hero.svg" width="67.47" height="67.506" alt=""></span>
+      </div>
+    </section>
+
+    <!-- Featured work -->
+    <section class="work container" id="projects" aria-labelledby="work-title">
+      <h2 class="section-title section-title--center reveal" id="work-title">Featured work</h2>
+      <p class="work__years reveal">(2020 – 2026)</p>
+
+      <div class="cards">
+        <!-- 01 Elva -->
+        <article class="card">
+          <header class="card__head">
+            <div class="card__brand">
+              <span class="card__index">01</span>
+              <img class="card__logo card__logo--loose" src="assets/logos/logo-elva.svg" width="109" height="32" alt="Elva">
+            </div>
+            <p class="card__desc">Elva is Theneo’s API management platform for the agentic era. It finds every endpoint straight from code, scores API quality, catches breaking changes and turns APIs into secure MCP servers for AI agents.</p>
+          </header>
+          <div class="card__media media-elva">
+            <div class="media-col">
+              <figure class="shot" style="--h:296"><img src="assets/images/elva-understand.webp" width="1212" height="592" alt="Elva — API readiness dashboard" loading="lazy"></figure>
+              <figure class="shot shot--live" style="--h:296"><img src="assets/images/elva-landing.webp" width="1212" height="592" alt="Elva — landing page: API management, rebuilt for the agentic era" loading="lazy">
+                <div class="stage" data-w="1212" data-h="592" style="--s:.5" aria-hidden="true"><div class="stage__canvas">
+                  <div class="term" data-anim="terminal">
+                    <div class="term__bar"><i></i><i></i><i></i><span class="term__title">elva sync acme/payments-api</span><span class="term__live">live</span></div>
+                    <div class="term__body">
+<div class="tl" data-type><span class="c-p">❯</span> <span class="tl__typed">npx elva sync acme/payments-api</span></div>
+<div class="tl" data-d="450"><span class="c-t">▸</span> Scanning repo<span class="c-d">..................</span> <span class="c-v late">1,204 files</span></div>
+<div class="tl" data-d="450"><span class="c-t">▸</span> Endpoints discovered<span class="c-d">...........</span> <span class="c-v late">214</span></div>
+<div class="tl" data-d="450"><span class="c-t">▸</span> Generating OpenAPI 3.1 specs<span class="c-d">...</span> <span class="c-g late">done</span></div>
+<div class="tl" data-d="400"><span class="c-t">▸</span> Building catalog</div>
+<div class="tl" data-d="200">    payments    <span class="c-g">38 endpoints</span>    <span class="c-a">A</span> <span class="c-g">·</span> <span class="c-b">92%</span></div>
+<div class="tl" data-d="200">    identity    <span class="c-g">24 endpoints</span>    <span class="c-b">B</span> <span class="c-g">·</span> <span class="c-b">84%</span></div>
+<div class="tl" data-d="200">    billing     <span class="c-g">17 endpoints</span>    <span class="c-o">D · 61%</span>   <span class="c-w late">← weakest, fix first</span></div>
+<div class="tl" data-d="500"><span class="c-t">▸</span> Flagging issues</div>
+<div class="tl" data-d="220">    <span class="c-warn">⚠</span> 2 breaking changes         <span class="c-g">DELETE /builds/{id}</span></div>
+<div class="tl" data-d="220">    <span class="c-warn">⚠</span> 4 endpoints missing auth   <span class="c-g">billing/*</span></div>
+<div class="tl" data-d="220">    <span class="c-warn">⚠</span> 12 untyped fields          <span class="c-g">legacy schemas</span></div>
+<div class="tl" data-d="500"><span class="c-t">▸</span> Improving with AI agent</div>
+<div class="tl" data-d="260">    <span class="c-ok">✓</span> 31 descriptions written    <span class="c-ok">✓</span> 12 schemas typed</div>
+<div class="tl" data-d="260">    <span class="c-ok">✓</span> auth documented            <span class="c-g">billing/*</span></div>
+<div class="tl" data-d="300">    billing rescored   <span class="c-s">D · 61%</span> <span class="late"><span class="c-g">→</span> <span class="c-a">B</span> <span class="c-g">·</span> <span class="c-b">83%</span>   <span class="c-dim">agent-ready ↑</span></span></div>
+<div class="tl" data-d="550"><span class="c-t">▸</span> Deploying MCP server<span class="c-d">...........</span> <span class="c-ok late">live</span></div>
+<div class="tl" data-d="500"><span class="c-ok">✓</span> <span class="c-link">mcp.elva.dev/acme-payments</span> <span class="c-g">· 23 tools · OAuth2 · done in 42s</span></div>
+<div class="tl" data-d="250"><span class="c-p">❯</span> <span class="term__cursor"></span></div>
+                    </div>
+                  </div>
+                </div></div>
+              </figure>
+            </div>
+            <div class="media-col">
+              <figure class="shot" style="--h:360"><img src="assets/images/elva-api-overview.webp" width="1028" height="720" alt="Elva — API collection overview" loading="lazy"></figure>
+              <figure class="shot shot--top-round shot--live" style="--h:232"><img src="assets/images/elva-ai-assistant.webp" width="954" height="431" alt="Elva — AI assistant" loading="lazy">
+                <div class="stage" data-w="954" data-h="431" style="--s:.5388" aria-hidden="true"><div class="stage__canvas">
+                  <div class="ai is-empty" data-anim="ai-prompt" data-prompts="write code samples for /payments|document every billing endpoint|make my API agent-ready">
+                    <span class="ai__glow"></span>
+                    <div class="ai__input"><span class="ai__ph">Ask AI to</span> <span class="ai__typed"></span><span class="ai__caret"></span></div>
+                    <span class="ai__send"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </div>
+                </div></div>
+              </figure>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 Theneo -->
+        <article class="card">
+          <header class="card__head">
+            <div class="card__brand">
+              <span class="card__index">02</span>
+              <img class="card__logo" src="assets/logos/logo-theneo.svg" width="160" height="28" alt="Theneo">
+            </div>
+            <p class="card__desc">Theneo is the AI-powered developer portal for API references, guides, changelogs and private customer portals, trusted by 15,000+ technology teams including Ticketmaster, LSEG, FIS, Similarweb and Corpay.</p>
+          </header>
+          <div class="card__media media-theneo">
+            <figure class="shot shot--framed shot--r6 media-theneo__main"><img src="assets/images/theneo-docs.webp" width="944" height="722" alt="Theneo — documentation home" loading="lazy"></figure>
+            <figure class="shot shot--flat shot--live media-theneo__mid"><img src="assets/images/theneo-collaboration.webp" width="930" height="1086" alt="Theneo — live collaboration in the editor" loading="lazy">
+              <div class="stage" data-w="620" data-h="724" style="--s:.5" aria-hidden="true"><div class="stage__canvas" data-anim="cursors">
+                <span class="peer peer--caret peer--lana" style="--c:#EF5886"><i class="peer__caret"></i><b>Lana Hubbard</b></span>
+                <span class="peer peer--arrow peer--peter" style="--c:#0FBAE0"><svg viewBox="0 0 13 16" width="13" height="16"><path d="M1 1l11 6.2-5.1 1.5L4.6 15z"/></svg><b>Peter Hester</b></span>
+                <span class="peer peer--arrow peer--sarah" style="--c:#D85736"><svg viewBox="0 0 13 16" width="13" height="16"><path d="M1 1l11 6.2-5.1 1.5L4.6 15z"/></svg><b>Sarah Chen</b></span>
+                <span class="peer peer--caret peer--carlos" style="--c:#6E58EF"><b>Carlos Graham</b><i class="peer__caret"></i></span>
+                <span class="peer peer--caret peer--erik" style="--c:#0F975E;--cc:#4CD39A"><i class="peer__caret"></i><b>Erik Galvan</b></span>
+              </div></div>
+            </figure>
+            <div class="media-col media-theneo__side">
+              <figure class="shot shot--flat shot--live" style="--h:171.79"><img src="assets/images/theneo-version-history.webp" width="930" height="516" alt="Theneo — review and version history" loading="lazy">
+                <div class="stage" data-w="930" data-h="516" style="--s:.3333" aria-hidden="true"><div class="stage__canvas vh" data-anim="review">
+                  <span class="vh__row"></span>
+                  <span class="vh__btn"></span>
+                  <span class="vh__status"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#1BDBA1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="cursor"><svg class="ptr" viewBox="0 0 24 24" width="24" height="24"><path d="M4 2.5v17.2l4.6-4.4 3 6.9 3.2-1.4-3-6.8h6.4z" fill="#fff" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+                </div></div>
+              </figure>
+              <figure class="shot shot--flat shot--live" style="--h:180"><img src="assets/images/theneo-review-flow.webp" width="930" height="540" alt="Theneo — comment thread" loading="lazy">
+                <div class="stage" data-w="1240" data-h="720" style="--s:.25" aria-hidden="true"><div class="stage__canvas cm" data-anim="comments">
+                  <span class="cm__thread"></span>
+                  <span class="cm__av cm__av--nk" style="left:56px;top:41.5px">NK</span>
+                  <p class="cm__name" style="left:143px;top:56px">Natia <span>2 hour ago</span></p>
+                  <p class="cm__count-label">Comments</p><span class="cm__badge">32</span>
+                  <p class="cm__text" style="left:142px;top:128px">Could you add a quickstart snippet to make onboarding easier?</p>
+                  <span class="cm__react"><img src="assets/images/emoji-heart-eyes.webp" width="42" height="42" alt=""><b class="cm__n">2</b></span>
+                  <svg class="cm__icon" style="left:273px;top:202px" viewBox="0 0 24 24" width="40" height="40"><circle cx="11" cy="13" r="8.5"/><path d="M7.5 15.2s1.3 1.8 3.5 1.8 3.5-1.8 3.5-1.8M8.3 11h.01M13.7 11h.01M19 2.5v5M16.5 5h5"/></svg>
+                  <svg class="cm__icon" style="left:359px;top:202px" viewBox="0 0 24 24" width="40" height="40"><path d="M12 3a9 9 0 0 0-7.9 13.3L3 21l4.7-1.1A9 9 0 1 0 12 3z"/><path d="M8 10.5h8M8 14h5"/></svg>
+                  <span class="cm__av cm__av--mk" style="left:140.4px;top:289.8px">MK</span>
+                  <p class="cm__name" style="left:231px;top:305px">Mariam <span class="cm__faint">2 hour ago</span></p>
+                  <p class="cm__text" style="left:227px;top:374px">I would also add interactive iframe</p>
+                  <div class="cm__new"><span class="cm__av cm__av--nk">NK</span><p class="cm__text">Great, thanks!</p></div>
+                  <div class="cm__reply">
+                    <span class="cm__elbow"></span>
+                    <span class="cm__av cm__av--nk">NK</span>
+                    <div class="cm__box">
+                      <p class="cm__input"><span class="cm__ph">Reply...</span><span class="cm__typed"></span><span class="cm__caret"></span></p>
+                      <span class="cm__sugg">Suggestion <svg viewBox="0 0 24 24" width="26" height="26"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                      <svg class="cm__tool" style="left:302px" viewBox="0 0 24 24" width="32" height="32"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg>
+                      <svg class="cm__tool" style="left:378px" viewBox="0 0 24 24" width="32" height="32"><path d="M21.4 11.1l-9.2 9.2a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8l8.5-8.5"/></svg>
+                    </div>
+                  </div>
+                  <span class="cursor" style="--x:548px;--y:199px"><svg class="ptr" viewBox="0 0 24 24" width="24" height="24"><path d="M4 2.5v17.2l4.6-4.4 3 6.9 3.2-1.4-3-6.8h6.4z" fill="#fff" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+                </div></div>
+              </figure>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 TBC -->
+        <article class="card">
+          <header class="card__head">
+            <div class="card__brand">
+              <span class="card__index">03</span>
+              <img class="card__logo" src="assets/logos/logo-tbc.svg" width="156.667" height="36" alt="TBC Bank">
+            </div>
+            <p class="card__desc">TBC Bank is one of Georgia’s largest banks and a pioneer of digital-first banking, serving individuals and businesses with everyday banking, payments, savings and investment products.</p>
+          </header>
+          <div class="card__media media-two">
+            <figure class="shot shot--flat shot--square"><img src="assets/images/tbc-light.webp" width="1096" height="776" alt="TBC Bank — mobile app screens, light" loading="lazy"></figure>
+            <figure class="shot shot--framed"><img src="assets/images/tbc-dark.webp" width="1094" height="774" alt="TBC Bank — mobile app screens, dark" loading="lazy"></figure>
+          </div>
+        </article>
+
+        <!-- 04 Pubgenius -->
+        <article class="card">
+          <header class="card__head">
+            <div class="card__brand">
+              <span class="card__index">04</span>
+              <img class="card__logo" src="assets/logos/logo-pubgenius.png" width="170" height="32" alt="pubGENIUS">
+            </div>
+            <p class="card__desc">Pubgenius is an international product studio that designs and builds web and mobile apps for clients worldwide, taking products end to end, from the first idea and UX to launch-ready technology.</p>
+          </header>
+          <div class="card__media">
+            <figure class="shot shot--r16"><img src="assets/images/pubgenius.webp" width="2272" height="1278" alt="Pubgenius — website design" loading="lazy"></figure>
+          </div>
+        </article>
+
+        <!-- 05 Feedc -->
+        <article class="card card--tall-bottom">
+          <header class="card__head">
+            <div class="card__brand">
+              <span class="card__index">05</span>
+              <img class="card__logo" src="assets/logos/logo-feedc.svg" width="112.017" height="32" alt="feedc">
+            </div>
+            <p class="card__desc">Feedc is a location-based content platform for creating, sharing and discovering stories around you, giving creators the tools to build engaging experiences tied to real places.</p>
+          </header>
+          <div class="card__media">
+            <figure class="shot shot--r16"><img src="assets/images/feedc.webp" width="1594" height="988" alt="Feedc — mobile app screens" loading="lazy"></figure>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- About me -->
+    <section class="about container" id="about" aria-labelledby="about-title">
+      <h2 class="section-title reveal" id="about-title">About me</h2>
+      <div class="experience reveal">
+        <h3 class="experience__label">Experience</h3>
+        <ol class="experience__list">
+          <li class="job">
+            <p class="job__date">Nov 2023 – Present</p>
+            <p class="job__role">Senior Product Designer at <img src="assets/logos/logo-theneo-sm.svg" width="137" height="24" alt="Theneo"></p>
+          </li>
+          <li class="job">
+            <p class="job__date">Apr 2021 – May 2023</p>
+            <p class="job__role">Product Designer at <img src="assets/logos/logo-tbc-sm.svg" width="113.851" height="24" alt="TBC Bank"></p>
+          </li>
+          <li class="job">
+            <p class="job__date">Apr 2022 – Dec 2022</p>
+            <p class="job__role">UX/UI Designer at <img src="assets/logos/logo-pubgenius.png" width="149" height="28" alt="pubGENIUS"></p>
+          </li>
+          <li class="job">
+            <p class="job__date">Dec 2019 – Jan 2021</p>
+            <p class="job__role">UX/UI Designer at <img class="job__logo--nudge" src="assets/logos/logo-feedc-sm.svg" width="84" height="24" alt="feedc"></p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="story reveal">
+        <figure class="polaroid">
+          <span class="polaroid__tape" aria-hidden="true"></span>
+          <img class="polaroid__photo" src="assets/images/natia-childhood.webp" width="526" height="698" alt="Natia as a little girl, smiling and holding a white teddy bear" loading="lazy">
+          <figcaption class="polaroid__caption">the original question-asker</figcaption>
+          <span class="sparkle polaroid__sticker" aria-hidden="true"><img src="assets/decor/sparkle-footer-r.svg" width="49.36" height="49.35" alt=""></span>
+        </figure>
+        <div class="story__text">
+          <h3 class="story__title">This girl will lead your design processes</h3>
+          <p>I’ve always been curious, always asking questions and trying to understand the world around me. I love figuring out how things work, why people think the way they do, and how things could be better.</p>
+          <p>I guess that’s where my empathetic heart comes in – it’s a part of who I am outside of work, and naturally carries into how I understand people and approach design.</p>
+          <p>With 6+ years in product design, I’ve worked on everything from digital banking to AI-powered tools. I’m most useful when I can connect the dots, challenge assumptions, and bring the bigger picture to life without losing sight of the little details that make a product feel right.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Work together -->
+  <footer class="together" aria-labelledby="together-title">
+    <div class="together__stage">
+      <span class="sparkle together__sparkle together__sparkle--r" aria-hidden="true"><img src="assets/decor/sparkle-footer-r.svg" width="49.36" height="49.35" alt=""></span>
+      <span class="sparkle together__sparkle together__sparkle--l" aria-hidden="true"><img src="assets/decor/sparkle-footer-l.svg" width="46.927" height="46.78" alt=""></span>
+      <h2 class="section-title section-title--center reveal" id="together-title">Let’s work together</h2>
+      <p class="together__text reveal">Have a product that should feel obvious? Write to me, and let’s solve real problems with simple, beautiful interfaces.</p>
+
+      <ul class="contacts reveal">
+        <li class="contact">
+          <img class="contact__icon" src="assets/icons/icon-mail.svg" width="58" height="58" alt="">
+          <div class="contact__text">
+            <span class="contact__label">Mail</span>
+            <a class="contact__link" href="mailto:nattia.khitarishvili@gmail.com">nattia.khitarishvili@gmail.com</a>
+          </div>
+        </li>
+        <li class="contact">
+          <img class="contact__icon" src="assets/icons/icon-instagram.svg" width="58" height="58" alt="">
+          <div class="contact__text">
+            <span class="contact__label">Instagram</span>
+            <a class="contact__link" href="https://www.facebook.com/nattia.khitarishvili" target="_blank" rel="noopener">@Natia Khitarishvili<span class="contact__arrow">↗</span></a>
+          </div>
+        </li>
+        <li class="contact">
+          <img class="contact__icon" src="assets/icons/icon-linkedin.svg" width="58" height="58" alt="">
+          <div class="contact__text">
+            <span class="contact__label">LinkedIn</span>
+            <a class="contact__link" href="https://www.linkedin.com/in/natiakhitarishvili/" target="_blank" rel="noopener">@Natia Khitarishvili<span class="contact__arrow">↗</span></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
