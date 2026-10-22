@@ -53,7 +53,11 @@
     document.fonts.ready.then(() => {
       size();
       addEventListener('resize', size);
-      setTimeout(() => setInterval(next, 2800), 1400);
+      // first change 2s after the page opened, then every 2.8s
+      setTimeout(() => {
+        next();
+        setInterval(next, 2800);
+      }, Math.max(0, 2000 - performance.now()));
     });
   }
 
